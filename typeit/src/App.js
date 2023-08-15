@@ -1,10 +1,17 @@
 import Navbar from "./components/Navbar";
+import Minibar from "./components/Minibar";
+import styled from 'styled-components'
 
+const APP= styled.div`
+
+`
 function App() {
   return (
-    <>
-      <Navbar/>
-    </>
+    <APP>
+      <Navbar/>   
+
+      <Minibar/>
+      </APP>
   );
 }
 

@@ -39,7 +39,7 @@ export default function Navbar() {
             <Navleft>
                 <Logo src='icons/typeitLogo.png'/>
                 <Icon src='icons/keyboard.svg'/>
-                <Icon src='icons/crown.png'/>
+                <Icon src='icons/crown-white.png'/>
                 <Icon src='icons/info-lg.svg'/>
                 <Icon src='icons/gear-fill.svg'/>
                 

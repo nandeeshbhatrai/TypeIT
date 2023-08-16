@@ -45,9 +45,6 @@ export default function TextArea() {
 
           console.log(e.key);
 
-          
-
-
           if(arr.includes(e.key)){
   
   

@@ -26,28 +26,46 @@ let s1=s.toLowerCase();
 let i=0;
 let ding=new Audio("ding2.mp3");
 
+
 export default function TextArea() {
     function handleKey(e){
 
-        let arr = ['a' , 'b', 'c', 'd' , 'e' , 'f' , 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' , 't' , 'u' , 'v' ,'w', 'x' ,'y' , 'z' , ' ' , ',' , '.' , '?' , 'Backspace'];
 
-        if(arr.includes(e.key)){
+        
+        let arr = ['a' , 'b', 'c', 'd' , 'e' , 'f' , 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' , 't' , 'u' , 'v' ,'w', 'x' ,'y' , 'z' , ' ' , ',' , '.' , '?'];
 
-            if(s1[i]!==e.key && i!==s1.length && e.key !== 'Backspace'){
-    
-                
-                ding.play();
-            }else{
-                if (e.key === 'Backspace') {
-                    e.preventDefault();
-                    console.log('hello');
-                  }else{
-                      console.log(`s[1] i is ${s1[i]} and key is ${e.key}`)
-                      i++;
-                  }
+        let notAlwd=['Backspace', 'Enter', 'Control', 'Alt', 'Shift' ]
+
+
+        if( notAlwd.includes(e.key) || e.shiftKey || e.getModifierState('CapsLock')){
+          e.preventDefault();
+        }
+
+        else{
+
+          console.log(e.key);
+
+          
+
+
+          if(arr.includes(e.key)){
+  
+  
+            if(e.key!==s1[i] && i!==s.length){
+              ding.play();
+              e.preventDefault();
             }
+            else {
+              i++;
+            }
+  
+  
+          }
+
 
         }
+        
+
         
 
 
@@ -55,7 +73,7 @@ export default function TextArea() {
   return (
     <div>
         <p style={{color:'white',textAlign:'center', fontFamily:'Lexend Deca', wordSpacing:14, fontSize:25}}>{s1}</p>
-      <Textbox onKeyUp={handleKey}></Textbox>
+      <Textbox onKeyDown={handleKey}></Textbox>
 
     </div>
   )

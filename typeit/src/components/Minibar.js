@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+
 
 const MiniBar = styled.div`
   display: flex;
@@ -22,10 +23,40 @@ const MiniBar = styled.div`
   &:hover {
     opacity: 1;
   }
-`;
+`
 
+var OPAC = 0;
+
+
+const CapsDiv= styled.div`
+
+height: 40px;
+color: white;
+background-color: #9ed072;
+word-spacing:5px;
+width:max-content;
+margin: 40px auto;
+padding : 10px;
+font-size:30px;
+border:2px solid white;
+border-radius:20px;
+font-family: Lexend Deca;
+font-weight:bold;
+opacity: ${props => (props.capsOn ? 1 : 0)};
+`
 function Minibar() {
+
+  const [capsOn, setCapsOn] = useState(false);
+
+  function handleCaps(e) {
+    if (e.getModifierState('CapsLock')) {
+      setCapsOn(true);
+    } else {
+      setCapsOn(false);
+    }
+  }
   return (
+    <>
     <MiniBar>
       <StyledSettings>@ Punctuation</StyledSettings>
 
@@ -57,6 +88,9 @@ function Minibar() {
       <StyledSettings className='timer'>120</StyledSettings>
       
     </MiniBar>
+
+    <CapsDiv onKeyDown={handleCaps}>Caps ON</CapsDiv>
+    </>
   );
 }
 

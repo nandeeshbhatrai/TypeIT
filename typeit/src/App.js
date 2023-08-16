@@ -12,7 +12,7 @@ function App() {
       <Navbar/>   
       <Minibar/>
       <TextArea/>
-      </APP>
+    </APP>
   );
 }
 

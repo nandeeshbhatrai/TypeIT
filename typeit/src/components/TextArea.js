@@ -33,7 +33,7 @@ export default function TextArea() {
 
         if(arr.includes(e.key)){
 
-            if(s1[i]!==e.key && i!==s1.length && e.key != 'Backspace'){
+            if(s1[i]!==e.key && i!==s1.length && e.key !== 'Backspace'){
     
                 
                 ding.play();

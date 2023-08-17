@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-
 const MiniBar = styled.div`
   display: flex;
   width: 50%;
@@ -25,9 +24,6 @@ const MiniBar = styled.div`
   }
 `
 
-var OPAC = 0;
-
-
 const CapsDiv= styled.div`
 
 height: 40px;
@@ -42,19 +38,21 @@ border:2px solid white;
 border-radius:20px;
 font-family: Lexend Deca;
 font-weight:bold;
-opacity: ${props => (props.capsOn ? 1 : 0)};
 `
 function Minibar() {
 
   const [capsOn, setCapsOn] = useState(false);
+  document.addEventListener('keydown',(e)=>{
 
-  function handleCaps(e) {
-    if (e.getModifierState('CapsLock')) {
+    if(e.getModifierState('CapsLock')){
       setCapsOn(true);
-    } else {
-      setCapsOn(false);
     }
-  }
+    else{
+      setCapsOn(false);
+  
+    }
+    
+  })
   return (
     <>
     <MiniBar>
@@ -89,7 +87,7 @@ function Minibar() {
       
     </MiniBar>
 
-    <CapsDiv onKeyDown={handleCaps}>Caps ON</CapsDiv>
+    <CapsDiv style={capsOn ? {opacity:1}:{opacity:0}}>Caps ON</CapsDiv>
     </>
   );
 }

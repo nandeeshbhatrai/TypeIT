@@ -1,23 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Textbox=styled.textarea`
-
-width:80%;
-margin-top:50px;
-display: flex;
-margin: 50px auto;
-height:400px;
-font-size:30px;
-resize:none;
-// border: none;
-outline:none;
-background:transparent;
-color:white;
-
-
-
-`
 
 let s="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex iure cumque rem magni porro, laborum fugiat at molestias accusantium? Qui doloremque dicta voluptatem dignissimos veritatis, dolores error reiciendis in laborum, accusantium nostrum saepe minus suscipit doloribus nisi obcaecati expedita modi eos harum vitae. Mollitia, consequuntur deleniti quia debitis molestiae nemo."
 
@@ -25,6 +8,45 @@ let s1=s.toLowerCase();
 
 let i=0;
 let ding=new Audio("ding2.mp3");
+
+
+const Div = styled.div`
+display:flex;
+position: relative;
+height:200px;
+// border:2px solid red;
+width:100vw;
+`
+const Textbox=styled.textarea`
+text-align:left;
+font-family:Lexend Deca ;
+position : absolute;
+word-spacing:14px;
+line-height:1.5;
+z-index: 5;
+width:inherit;
+display: flex;
+height:inherit;
+font-size:25px;
+resize:none;
+outline:none;
+background:transparent;
+color:white;
+font-weight:bold;
+border: none;
+`
+
+const P = styled.p`
+  margin:0;
+  width:inherit;
+  height:inherit;
+  // border:2px solid white;
+  color:#d8b95f;
+  text-align:left;
+  font-family:Lexend Deca ;
+  word-spacing:14px;
+  font-size:25px;
+  line-height:1.5;`
 
 
 export default function TextArea() {
@@ -63,17 +85,15 @@ export default function TextArea() {
 
 
         }
-        
-
-        
-
 
     }
-  return (
-    <div>
-        <p style={{color:'white',textAlign:'center', fontFamily:'Lexend Deca', wordSpacing:14, fontSize:25}}>{s1}</p>
-      <Textbox onKeyDown={handleKey}></Textbox>
 
-    </div>
+  return (
+    <Div>
+        <P>{s1}</P>
+        <Textbox onKeyDown={handleKey}></Textbox>
+
+    </Div>
   )
-}
+
+  }

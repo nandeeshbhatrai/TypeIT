@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+let fills=document.getElementsByClassName('icon');
+
+let fillarr=Array.from(fills);
+
+fillarr.forEach((e)=>{
+    let fill=e.getAttribute('fill');
+    e.setAttribute(fill,'red');
+})
 const Logo = styled.img`
     height: 70px;
     cursor:pointer;
@@ -15,8 +24,11 @@ const Navleft = styled.div`
 
 const Icon = styled.img`
     height: 20px;
-    cursor:pointer;
-`
+    cursor: pointer;
+
+`;
+
+
 const NavRight = styled.div`
     display: flex;
     align-items: center;
@@ -38,8 +50,8 @@ export default function Navbar() {
 
             <Navleft>
                 <Logo src='icons/typeitLogo.png'/>
-                <Icon src='icons/keyboard.svg'/>
-                <Icon src='icons/crown-white.png'/>
+                <Icon src='icons/keyboard.svg' className='icon'/>
+                <Icon src='icons/crown-solid.svg' className='icon'/>
                 <Icon src='icons/info-lg.svg'/>
                 <Icon src='icons/gear-fill.svg'/>
                 
